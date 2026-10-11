@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack | Smart Waste Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="logo" href="/">🌱 EcoTrack</a>
+        <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#report">Report Waste</a>
+    <a href="/dashboard">Dashboard</a>
+</div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">A CLEANER TOMORROW STARTS TODAY</span>
+            <h1>Make Your Community <span>Cleaner & Greener.</span></h1>
+            <p>
+                A smarter way to report waste, learn proper segregation
+                and help create a cleaner neighbourhood.
+            </p>
+            <a class="primary-button" href="#report">Report Waste →</a>
+            <a class="secondary-button" href="#learn">Learn Recycling</a>
+        </div>
+        <div class="hero-art" aria-label="Nature and recycling illustration">
+            <div class="sun"></div>
+            <div class="earth">🌍</div>
+            <div class="leaf leaf-one">🌿</div>
+            <div class="leaf leaf-two">♻️</div>
+            <div class="art-caption">Small actions. Big impact.</div>
+        </div>
+    </header>
+
+    <section class="stats" id="features">
+        <div class="stat">
+            <span>♻️</span>
+            <h3>Recycle More</h3>
+            <p>Learn to separate recyclable materials.</p>
+        </div>
+        <div class="stat">
+            <span>📍</span>
+            <h3>Report Waste</h3>
+            <p>Help identify waste that needs attention.</p>
+        </div>
+        <div class="stat">
+            <span>🌿</span>
+            <h3>Act Locally</h3>
+            <p>Encourage cleaner habits in your community.</p>
+        </div>
+    </section>
+
+    <section class="report-section" id="report">
+        <div>
+            <span class="eyebrow">TAKE ACTION</span>
+            <h2>Found a waste problem?</h2>
+            <p>Use this starter form to describe a waste issue in your area.</p>
+        </div>
+
+       
+<form id="waste-form" method="POST" action="/">
+    <label for="location">Location</label>
+    <input
+        id="location"
+        name="location"
+        type="text"
+        placeholder="e.g. Near the community park"
+        required
+    >
+
+    <label for="waste-type">Type of waste</label>
+    <select id="waste-type" name="waste_type" required>
+        <option value="">Select waste type</option>
+        <option>Wet waste</option>
+        <option>Dry waste</option>
+        <option>Plastic waste</option>
+        <option>Electronic waste</option>
+        <option>Overflowing bin</option>
+        <option>Other</option>
+    </select>
+
+    <label for="description">Description</label>
+    <textarea
+        id="description"
+        name="description"
+        rows="3"
+        placeholder="Describe the problem..."
+        required
+    ></textarea>
+
+    <button class="primary-button" type="submit">Submit Report</button>
+
+    {% if message %}
+        <p id="form-message" role="status">{{ message }}</p>
+    {% endif %}
+</form>
+
+    </section>
+
+    <section class="learn-section" id="learn">
+        <span class="eyebrow">KNOW YOUR WASTE</span>
+        <h2>Segregate. Recycle. Repeat.</h2>
+        <div class="waste-cards">
+            <article class="waste-card">
+                <span>🍌</span>
+                <h3>Wet Waste</h3>
+                <p>Fruit peels, vegetable scraps and other suitable food waste.</p>
+            </article>
+            <article class="waste-card">
+                <span>📦</span>
+                <h3>Dry Waste</h3>
+                <p>Clean paper, cardboard, metal and recyclable packaging.</p>
+            </article>
+            <article class="waste-card">
+                <span>🔋</span>
+                <h3>E-Waste</h3>
+                <p>Batteries and old electronics. Use an authorised collection point.</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <a class="logo" href="/">🌱 EcoTrack</a>
+        <p>Building cleaner communities, one action at a time.</p>
+        <small>BSc IT Community Engagement Project</small>
+    </footer>
+
+
+</body>
+</html>
